@@ -32,8 +32,19 @@ use yii\widgets\ActiveForm;
                         '23' => '23',
                 ],['promt' => 'Ваш возраст'])?>
 
+                <div class="img-wrapp">
+                    <?=\yii\helpers\Html::img('@web/images/users/no-image.png',[
+                        'class' => 'change-img',
+                        'id' => 'img-preview',
+                        'style' => 'margin-bottom:30px;'
+                    ])?>
+                </div>
 
-                <?= $form->field($signup_model, 'img')->fileInput() ?>
+
+                <?= $form->field($signup_model, 'img')->fileInput([
+                    'id' => 'img2',
+                    'accept' => 'image/*'
+                ]) ?>
 
 
                 <?=$form->field($signup_model,'password')->passwordInput(['placeholder'=>'Ваш пароль'])?>

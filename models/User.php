@@ -15,6 +15,7 @@ class User extends ActiveRecord implements IdentityInterface
         return 'user';
     }
 
+
     public function setPassword($pass) {
         $this->password = sha1($pass);
     }

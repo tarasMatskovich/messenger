@@ -16,7 +16,7 @@ use yii\helpers\Url;
                     <div class="row">
                         <div class="col-md-2">
                             <div class="img-wrapp">
-                                <a href="#">
+                                <a href="<?=Url::to(['user/index','id'=>$user->id])?>">
                                     <?=\yii\helpers\Html::img("@web/images/users/{$user->img}")?>
                                 </a>
                             </div>
@@ -26,7 +26,7 @@ use yii\helpers\Url;
                                 <div class="col">
                                     <div class="users-info">
                                         <h5>
-                                            <a href="#" class="name">
+                                            <a href="<?=Url::to(['user/index','id'=>$user->id])?>" class="name">
                                                 <?= $user->first_name.' '.$user->second_name;?>
                                             </a>
                                         </h5>
@@ -43,7 +43,7 @@ use yii\helpers\Url;
 
     </div>
 </section>
-
+<?if($pages->getPageCount() > 1):?>
 <section class="pagination">
     <div class="container">
         <div class="row">
@@ -72,3 +72,4 @@ use yii\helpers\Url;
         </div>
     </div>
 </section>
+<?endif;?>

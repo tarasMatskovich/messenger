@@ -62,6 +62,7 @@ class IndexController extends AppController
         if(Yii::$app->request->isPost) {
             $signup_model->attributes = Yii::$app->request->post('SignUp');
             if($signup_model->validate() && $signup_model->signup()) {
+                Yii::$app->session->setFlash('success','Вы успешно зарегистрировались');
                 return $this->goHome();
             }
         }

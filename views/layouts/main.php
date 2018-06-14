@@ -52,7 +52,7 @@ AppAsset::register($this);
                 </li>
                 <?if(!Yii::$app->user->isGuest):?>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?=Url::to(['profile/index'])?>">Мой профиль</a>
+                    <a class="nav-link" href="<?=Url::to(['user/index','id'=>Yii::$app->user->id])?>">Мой профиль</a>
                 </li>
                 <? endif; ?>
                 <?if(Yii::$app->user->isGuest):?>
@@ -75,6 +75,20 @@ AppAsset::register($this);
         </div>
     </nav>
 </section>
+
+<? if(Yii::$app->session->getFlash('success')):?>
+    <div class="msg-alert">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="alert alert-success" role="alert">
+                        <?=Yii::$app->session->getFlash('success')?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<? endif;?>
 
 <?= $content ?>
 
