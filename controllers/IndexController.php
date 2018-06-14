@@ -5,6 +5,8 @@ namespace app\controllers;
 use app\models\Login;
 use app\models\SignUp;
 use Yii;
+use app\models\User;
+use yii\data\Pagination;
 
 
 
@@ -32,7 +34,26 @@ class IndexController extends AppController
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $query = $this->getUsersQuery();
+        $pages = new Pagination([
+            'totalCount' => $query->count(),
+            'pageSize' => '3'
+        ]);
+        // приводим параметры в ссылке к ЧПУ
+        $pages->pageSizeParam = false;
+        $users = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+
+        return $this->render('index',[
+            'users' => $users,
+            'pages' => $pages
+        ]);
+    }
+
+    public function getUsersQuery() {
+        $users = User::find();
+        return $users;
     }
 
     public function actionSignup() {

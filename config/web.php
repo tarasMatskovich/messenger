@@ -61,6 +61,8 @@ $config = [
                 'login' => 'index/login',
                 'signup' => 'index/signup',
                 'logout' => 'index/logout',
+                'page/<page:\d+>' => 'index/index',
+                'user/<id:\d+>' => 'user/index'
             ],
         ],
     ],

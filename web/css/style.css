@@ -566,6 +566,10 @@ footer ul li:last-child {
 	margin-bottom: 40px;
 }
 
+.all-users .img-wrapp img {
+	max-height: 160px;
+}
+
 
 
 
@@ -621,6 +625,10 @@ footer ul li:last-child {
 	.login button[type='submit'] {
 		text-align: center;
 		width: 100%;
+	}
+
+	.all-users .img-wrapp img {
+		max-height: 220px;
 	}
 }
 

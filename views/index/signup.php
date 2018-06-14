@@ -6,11 +6,39 @@ use yii\widgets\ActiveForm;
         <h2>Зарегистрируйтесь, чтобы начать пользоваться MyMessenger</h2>
         <div class="row justify-content-center">
             <div class="col-8">
-                <? $form = ActiveForm::begin()?>
+                <? $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']])?>
 
                 <?=$form->field($signup_model,'email')->textInput(['placeholder'=>'Ваш email'])?>
 
+                <?=$form->field($signup_model,'first_name')->textInput(['placeholder'=>'Ваше имя'])?>
+
+                <?=$form->field($signup_model,'second_name')->textInput(['placeholder'=>'Ваша фамилия'])?>
+
+                <?=$form->field($signup_model,'city')->textInput(['placeholder'=>'Ваш город'])?>
+
+                <?=$form->field($signup_model,'phone')->textInput(['type'=>'number','placeholder'=>'Ваш номер телефона'])?>
+
+                <?=$form->field($signup_model,'about')->textarea(['placeholder'=>'О себе','rows' => 10])?>
+
+                <?= $form->field($signup_model,'age')->dropDownList([
+                        '15' => '15',
+                        '16' => '16',
+                        '17' => '17',
+                        '18' => '18',
+                        '19' => '19',
+                        '20' => '20',
+                        '21' => '21',
+                        '22' => '22',
+                        '23' => '23',
+                ],['promt' => 'Ваш возраст'])?>
+
+
+                <?= $form->field($signup_model, 'img')->fileInput() ?>
+
+
                 <?=$form->field($signup_model,'password')->passwordInput(['placeholder'=>'Ваш пароль'])?>
+
+                <?=$form->field($signup_model,'confirm_password')->passwordInput(['placeholder'=>'Ваш пароль повторно'])?>
 
                 <button type="submit" class="btn btn-success">Зарегистрироваться</button>
 
