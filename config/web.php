@@ -64,6 +64,8 @@ $config = [
                 'page/<page:\d+>' => 'index/index',
                 'edit' => 'user/edit',
                 'user/<id:\d+>' => 'user/index',
+                'messages/<id:\d+>' => 'message/show',
+                'messages' => 'message/index'
             ],
         ],
     ],

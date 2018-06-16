@@ -48,7 +48,7 @@ AppAsset::register($this);
                     <a class="nav-link" href="<?=Url::home()?>">Главная <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?=Url::to(['messages/index'])?>">Сообщения</a>
+                    <a class="nav-link" href="<?=Url::to(['message/index'])?>">Сообщения</a>
                 </li>
                 <?if(!Yii::$app->user->isGuest):?>
                 <li class="nav-item">
@@ -100,7 +100,7 @@ AppAsset::register($this);
                 <div class="col-md-8">
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="<?=Url::home()?>"">
                                 Главная
                             </a>
                         </li>
@@ -110,7 +110,7 @@ AppAsset::register($this);
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="<?=Url::to(['user/index','id'=>Yii::$app->user->id])?>"">
                                 Мой профиль
                             </a>
                         </li>
